@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Memerah Sapi</title>
+    <link rel="stylesheet" href="css/play.css" type="text/css">
+</head>
+<body>
+    <h1>Are You Ready ?</h1>
+    <button type="button" onclick="waktuPermainan()" id="start">Start!</button>
+    <h2><strong>Score:</strong></h2>
+    <h2 class="output">0<h2>
+    <div class="container">
+        <div class="sapi">
+            <div class="susu">
+
+            </div>
+        </div>
+        <div class="sapi">
+            <div class="susu">
+
+            </div>
+        </div>
+        <div class="sapi">
+            <div class="susu">
+
+            </div>
+        </div>
+        <div class="sapi">
+            <div class="susu">
+
+            </div>
+        </div>
+        <div class="sapi">
+            <div class="susu">
+
+            </div>
+        </div>
+
+        <div class="rumput">
+
+        </div>
+        <div>
+            <a href="index.html" id="looping"></a>
+        </div>
+    </div>
+
+    <div>
+        <p id="result"></p>
+    </div>
+
+    <audio loop id="playAudio">
+        <source src="/music/bgmusic.mp3" />
+    </audio>
+
+    <script>
+        const sapi = document.querySelectorAll('.sapi');
+        const susu = document.querySelectorAll('.susu');
+        const nilaiScore = document.querySelector('.output');
+
+        let timesUp;
+        let score = 0;
+        let sapiSebelumnya;
+
+        document.addEventListener("click", musicPlay);
+        function musicPlay() {
+            document.getElementById("playAudio").play();
+            document.removeEventListener("click", musicPlay);
+        }
+
+        function generateAngka(arr){
+            let angkaRandom = Math.floor(Math.random() * arr.length);
+            let sapiMenyusui = arr[angkaRandom];
+            if(sapiMenyusui === sapiSebelumnya){
+                generateAngka(arr)
+            }
+            sapiSebelumnya = sapiMenyusui;
+
+            return sapiMenyusui;
+        }
+
+        function susuJatuh(){
+            const sapiSapi = generateAngka(sapi);
+            sapiSapi.classList.add('jatuh');
+
+            setTimeout(() => {
+                sapiSapi.classList.remove('jatuh');
+                if(!timesUp){
+                    susuJatuh();
+                }
+            }, 380)
+        }
+
+        function waktuPermainan(){
+            timesUp = false;
+            nilaiScore.textContent = 0;
+            score = 0;
+            susuJatuh();
+            setInterval(() => {
+                timesUp = true;
+                scoreTotal();
+            }, 10000)
+        }
+
+        function collect(){
+            score += 1;
+            nilaiScore.textContent = score;
+        } 
+        
+        susu.forEach(s => {
+            s.addEventListener('mouseover', collect);
+        });
+
+        function scoreTotal(){
+            document.getElementById("result").innerHTML = `Your Total Score is ${nilaiScore.textContent}`
+            document.getElementById("looping").innerHTML = `Play Again?`
+        }
+    </script>
+</body>
+</html>

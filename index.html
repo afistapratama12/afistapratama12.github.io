@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Memerah Susu</title>
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="content">
+            <h1>MARI MEMERAH SAPI SEGAR .. !!</h1><br>
+            <br>
+            <img src="img/sapi-index.png"><br>
+        </div>
+            <a href="play.html" class="tombol">MULAI</a> 
+            <p id="guide"><strong>How to Play:</strong> gerakkan timba susu kemudian dapatkan susu sebanyak mungkin !!</p>
+
+        <h3 class="develop">Develop by: -Afista Pratama-</h3>
+
+        <audio loop id="playAudio">
+            <source src="/music/bgmusic.mp3" />
+        </audio>
+      
+        <script>
+            document.addEventListener("click", musicPlay);
+            function musicPlay() {
+                document.getElementById("playAudio").play();
+                document.removeEventListener("click", musicPlay);
+            }
+        </script>
+    </body>
+</html>

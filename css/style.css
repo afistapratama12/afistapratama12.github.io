@@ -1,0 +1,37 @@
+* {
+    text-align: center;
+    background-color: rgb(30, 214, 30);
+}
+
+h1 {
+    font-size: 60px;
+    font-family: arial;
+    position: relative;
+    top: 100px
+}
+
+a {
+    font-size: 30px;
+    font-family: sans-serif;
+    color: aliceblue;
+    text-decoration: none;
+    position: relative;
+    top: 10px;
+    padding: 5px;
+    background-color: transparent !important;
+    border:2px solid rgb(0, 83, 21);
+}
+
+#guide{
+    font-size: 25px;
+    color: aliceblue;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+}
+
+.content, .develop {
+    color: aliceblue;
+}

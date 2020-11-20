@@ -1,0 +1,49 @@
+* {
+    text-align: center;
+    background-color: rgb(30, 214, 30);
+}
+
+body {
+    color:aliceblue;
+}
+
+.container {
+    width: 500px;
+    height: 300px;
+    margin: auto;
+    overflow: hidden;
+    border-bottom: 2px black solid;
+    cursor: url(../img/timba.png), auto;
+}
+
+.sapi {
+    width: 100px;
+    height: 150px;
+    position: relative;
+    float: left;
+}
+.sapi::after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 150px;
+    background: url(../img/sapi-play.png) bottom center no-repeat;
+    background-size: 80%;
+    position: absolute;
+    top: -70px;
+}
+
+
+.susu {
+    width: 100%;
+    height: 100%;
+    background: url(../img/milk.png) bottom center no-repeat;
+    background-size: 15%;
+    position: absolute;
+    top: -70px;
+}
+
+.sapi.jatuh .susu {
+    top: 140px;
+    transition: 700ms;
+} 
