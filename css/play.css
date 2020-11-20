@@ -8,7 +8,7 @@ body {
 }
 
 .container {
-    width: 500px;
+    width: 750px;
     height: 300px;
     margin: auto;
     overflow: hidden;
@@ -17,7 +17,7 @@ body {
 }
 
 .sapi {
-    width: 100px;
+    width: 150px;
     height: 150px;
     position: relative;
     float: left;
@@ -25,7 +25,7 @@ body {
 .sapi::after {
     content: '';
     display: block;
-    width: 100px;
+    width: 150px;
     height: 150px;
     background: url(../img/sapi-play.png) bottom center no-repeat;
     background-size: 80%;
@@ -44,6 +44,6 @@ body {
 }
 
 .sapi.jatuh .susu {
-    top: 140px;
-    transition: 700ms;
+    top: 200px;
+    transition: 750ms;
 } 
